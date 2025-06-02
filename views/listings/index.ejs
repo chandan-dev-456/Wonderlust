@@ -1,0 +1,56 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div id="filters">
+        <div class="filter">
+            <div class="icon"><i class="fa-solid fa-fire fa-bounce fa-lg"></i><p>Trending</p></div>
+            <div class="icon"><i class="fa-solid fa-mug-saucer fa-lg"></i></i><p>Breakfast</p></div>
+            <div class="icon"><i class="fa-solid fa-utensils fa-lg"></i></i><p>Dinner</p></div>
+            <div class="icon"><i class="fa-solid fa-bed fa-lg"></i><p>Rooms</p></div>
+            <div class="icon"><i class="fa-solid fa-city fa-lg"></i><p>Iconic cities</p></div>
+            <div class="icon"><i class="fa-solid fa-umbrella-beach fa-lg"></i><p>Beach</p></div>
+            <div class="icon"><i class="fa-solid fa-water-ladder fa-lg"></i><p>Amazing Pools</p></div>
+            <div class="icon"><i class="fa-solid fa-mountain fa-lg"></i><p>Mountains</p></div>
+            <div class="icon"><i class="fa-solid fa-campground fa-lg"></i></i><p>Camping</p></div>
+            <div class="icon"><i class="fa-solid fa-tractor fa-lg"></i></i><p>Farm</p></div>
+            <div class="icon"><i class="fa-solid fa-snowflake fa-lg"></i></i><p>Arctic</p></div>
+        </div>
+        <div class="tax-switch">
+            <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Display total before Taxes</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <% for (let listing of allListing) { %>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4" >
+                <a href="/listing/<%= listing.id %>" class="card-anchor">
+                    <div class="card listing-card" style="width: 100%;">
+                        <img src="<%= listing.image.url %>" class="card-img-top img-fluid" alt="<%= listing.title %>" style="height: 20rem; object-fit: cover;">
+                        <div class="card-img-overlay"><h3 class="heart">&hearts;</h3></div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b><%= listing.title %></b></h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">&#8377;<%= Number(listing.price).toLocaleString('en-IN') %>/night <i class="tax-info"> + 18% GST</i></h6>
+                            <p class="card-text"><%= listing.description %></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</body>
+<script>
+    let taxSwitch = document.getElementById("switchCheckDefault");
+    taxSwitch.addEventListener( "click", ()=>{
+        let taxInfo = document.getElementsByClassName("tax-info");
+        for(info of taxInfo){
+            if(info.style.display != "inline"){
+                info.style.display = "inline";
+            }
+            else{
+                info.style.display = "none";
+            }
+        }
+    })
+</script>
+

@@ -1,0 +1,75 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="card offset-2 listing-card" style="width: 50rem ;height:50rem;">
+        <h2><%= listing.title %></h2>
+        <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
+        <div class="card-body">
+            <h5>Owned By - <%= listing.owner.username %></h5>
+            <h5 class="card-title"><b><%= listing.title %></b></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary">&#8377;<%= listing.price %>/night</h6>
+            <p class="card-text"><%= listing.description %></p>
+            <p class="card-text"><%= listing.location %></p>
+            <p class="card-text"><%= listing.country %></p>
+            <div class="show-btns mb-3 mt-3" >
+                <a href="/listing" class="btn btn-dark mb-3">Back</a>
+                <% if(currentUser) {%>
+                    <a href="/listing/<%= listing.id%>/edit" class="btn btn-dark mb-3">Edit</a>
+                    <form action="/listing/<%= listing.id%>?_method=DELETE" method="post">
+                        <button class="btn btn-dark mb-3 ">Delete</button>
+                    </form>
+                <% } %>
+            </div>
+            <hr>
+            <% if(currentUser) {%>
+            <div class="row">
+            <div class="col-12">
+                <h4>Leave a Review</h4>
+                <label for="rating" class="form-label">Rating</label>
+                <form action="/listing/<%= listing.id%>/reviews" method="POST">
+                    <fieldset class="starability-slot ">
+                        <legend>First rating:</legend>
+                        <input type="radio" id="no-rate" class="input-no-rate" name="reviews[rating]" value="1" checked aria-label="No rating." />
+                        <input type="radio" id="first-rate1" name="reviews[rating]" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="reviews[rating]" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="reviews[rating]" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="reviews[rating]" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="reviews[rating]" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                    </fieldset>
+                    <div class="mb-3 mt-3">
+                        <label class="form-label" for="comment">Comment</label>
+                        <textarea class="form-control" name="reviews[comment]" clos="30" rows="2" id="comment" required></textarea>
+                    </div>
+                    <button class="btn btn-dark">Submit</button>
+                </form> 
+            </div>
+            </div>
+            <hr>
+            <% } %>
+            <% if(listing.reviews.length > 0) {%>
+            <h4>All Reviews</h4>
+            <div class="row">
+                <%for( review of listing.reviews){ %>
+                    <div class="card col-5 ms-3 mb-2">
+                        <h5 class="card-title"><b><%= review.author.username %></b></h5>
+                        <p class="starability-result" data-rating = "<%= review.rating %>"></p>
+                        <p class="card-text"><%= review.comment %></p>
+                        <% if ( currentUser && review.author.username === currentUser.username) { %>
+                            <form action="/listing/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-dark col-3 mb-2 review-btn">Delete</button>
+                            </form>
+                        <%}%>
+                    </div>
+                <% } %>
+            </div>
+            <% } %>
+            <div class="col-12  mb-3">
+                <h3>Where you'll be</h3>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+<body >
+    <div class="col-8 offset-2">
+        <h1>Edit Listing</h1>
+        <form action="/listing/<%= listing.id %>?_method=PUT" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input name="listing[title]" placeholder="Enter title" type="text" class="form-control" id="title" required value="<%= listing.title %>">
+                <div class="invalid-feedback">Please provide a Title</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea id="description" class="form-control" name="listing[description]" type="text"  placeholder="Enter your description" required><%= listing.description %></textarea>
+                <div class="invalid-feedback">Please provide a Description</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3 card listing-card "style="width: 100%;">
+                <img src="<%= listing.image.url %>"class="card-img-top img-fluid" alt="image"style="height: 30rem; object-fit: cover;">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input name="listing[image][url]" placeholder="Enter image url" type="file" class="form-control" id="image" value="<%= listing.image.url %>">
+                <div class="invalid-feedback">Please provide an Image</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+                <label for="price" class="form-label">Price</label>
+                <div class="input-group mb-3">
+                <span class="input-group-text">&#8377;</span>
+                <input id="price" name="listing[price]" placeholder="Enter price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" required value="<%= listing.price %>">
+                <span class="input-group-text">.00</span>
+                <div class="invalid-feedback">Please provide Price</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input name="listing[location]" placeholder="Enter location" type="text" class="form-control" id="location"required value="<%= listing.location %>">
+                <div class="invalid-feedback">Please provide a Location</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]" placeholder="Enter your country" type="text" class="form-control" id="country" required value="<%= listing.country %>">
+                <div class="invalid-feedback">Please provide Country</div>
+                <div class="valid-feedback">Looks good!</div>
+            </div>
+            <a href="/listing/<%= listing.id %>" class="btn btn-dark mb-3">Back</a>
+            <button class="btn btn-dark mb-3">Edit</button>
+        </form>
+    </div>
+</body>
