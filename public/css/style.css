@@ -2,6 +2,7 @@ body{
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 .navbar-brand{
     display: flex ;
@@ -12,6 +13,7 @@ body{
     align-items: center !important;
 }
 .container{
+    overflow-x: hidden;
     flex: 1;
 }
 .nav-link{
@@ -94,7 +96,6 @@ body{
 }
 .filter{
     display: flex;
-    flex-wrap: wrap;
     text-align: center;
     /* justify-content: space-between; */
 }
@@ -139,4 +140,33 @@ body{
     border: none;
     color: aliceblue;
     background-color: #fe424d ;
+}
+@media only screen and (max-width : 767px){
+    .tax-switch{
+        display: none;
+    }
+    .search-bar{
+        display: none;
+    }
+    .filter{
+        overflow-x: scroll;
+    }
+    .col-lg-4,
+      .col-md-6,
+      .col-sm-12 {
+          flex: 0 0 50%; /* Set width to 50% */
+          max-width: 50%; /* Ensure columns don't exceed 50% width */
+      }
+      .card-img-top {
+          width: 100%; /* Full width */
+          height: 150px !important; /* Set specific height to create a rectangular shape */
+          object-fit: cover; /* Ensure the image fits well */
+      }
+
+      .row {
+          justify-content: space-between; /* Optional for better alignment */
+      }
+    .listing-card p{
+        display: none;
+    }
 }

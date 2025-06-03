@@ -25,8 +25,8 @@
         <% for (let listing of allListing) { %>
             <div class="col-lg-4 col-md-6 col-sm-12 mb-4" >
                 <a href="/listing/<%= listing.id %>" class="card-anchor">
-                    <div class="card listing-card" style="width: 100%;">
-                        <img src="<%= listing.image.url %>" class="card-img-top img-fluid" alt="<%= listing.title %>" style="height: 20rem; object-fit: cover;">
+                    <div class="card listing-card">
+                        <img src="<%= listing.image.url %>" class="card-img-top img-fluid" alt="<%= listing.title %>">
                         <div class="card-img-overlay"><h3 class="heart">&hearts;</h3></div>
                         <div class="card-body">
                             <h5 class="card-title"><b><%= listing.title %></b></h5>
@@ -52,5 +52,11 @@
             }
         }
     })
+    const scrollContainer = document.querySelector('.filter');
+
+    scrollContainer.addEventListener('wheel', (event) => {
+    event.preventDefault(); // Prevent default vertical scrolling
+    scrollContainer.scrollLeft += event.deltaY; // Scroll horizontally instead
+    });
 </script>
 
