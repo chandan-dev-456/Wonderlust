@@ -46,7 +46,7 @@ const store = MongoStore.create({
     },
     touchAfter : 24 * 3600,
 });
-store.on("error",()=>{
+store.on("error",(err)=>{
     console.log("Error in MONGO DB session store" ,err);
 });
 const sessionOptions = {
@@ -94,7 +94,7 @@ app.use((err,req,res,next)=>{
     // res.status(statusCode).send(message);
 });
 
-app.listen(port , ()=>{
+app.listen(port,()=>{
     console.log(`Server is listening on port ${port}`);
 });
 
