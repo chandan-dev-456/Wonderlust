@@ -133,6 +133,7 @@ body{
     border-color: transparent !important;
 }
 .search-bar{
+    width: 20rem;
     padding: 0.2rem;
     border-radius: 25rem;
     display: flex;

@@ -1,6 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 <body >
-    <div class="col-8 offset-2">
+    <div class="show-card mb-3">
+    <div class="edit-list col-12 ">
         <h1>Edit Listing</h1>
         <form action="/listing/<%= listing.id %>?_method=PUT" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             <div class="mb-3">
@@ -47,5 +48,6 @@
             <a href="/listing/<%= listing.id %>" class="btn btn-dark mb-3">Back</a>
             <button class="btn btn-dark mb-3">Edit</button>
         </form>
+    </div>
     </div>
 </body>
