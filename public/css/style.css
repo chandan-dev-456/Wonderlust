@@ -21,7 +21,7 @@ body{
 }
 .f-info{
     background-color: rgb(216, 216, 216);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     height: 8rem;
     display: flex;
     flex-wrap: wrap;
@@ -30,7 +30,11 @@ body{
 }
 .f-info-social{
     width: 100%;
-    text-align: center;
+    text-align: center;   
+}
+.f-info-social i{
+    margin: 0.5rem;
+    font-size: 1.4rem;
 }
 .f-info-brand{
     text-align: center;
