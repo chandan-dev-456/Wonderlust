@@ -63,10 +63,9 @@ const sessionOptions = {
 
 
 //Test route---------------------------------
-// app.get("/",(req,res)=>{
-//     res.send("Hi im root")
-//     // res.redirect("/listing");
-// });
+app.get("/",(req,res)=>{
+    res.redirect("/listing");
+});
 
 app.use(session(sessionOptions));
 app.use(flash());
