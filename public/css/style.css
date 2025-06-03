@@ -72,9 +72,10 @@ body{
 .card-subtitle{
     font-size: small;
 }
-.show-card {
+.show-card ,.login-page,.signup-page{
     display: flex ;
     justify-content: center ;
+    margin-top: 3rem;
 }
 .btn{
     background-color:#fe424d !important;
@@ -184,7 +185,7 @@ body{
     .listing-card {
         width: 100%;
     }
-    .show-card ,.new ,.login-page,.signup-page {
+    .show-card ,.new  {
         display: flex ;
         justify-content: center ;
         margin-top: 2rem;
