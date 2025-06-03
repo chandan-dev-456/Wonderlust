@@ -184,12 +184,12 @@ body{
     .listing-card {
         width: 100%;
     }
-    .new-list{
-        
-    }
-    .show-card ,.new{
+    .show-card ,.new ,.login-page,.signup-page {
         display: flex ;
         justify-content: center ;
         margin-top: 2rem;
+    }
+    .login-page ,.signup-page{
+        margin-top: 5rem;
     }
 }
