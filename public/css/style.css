@@ -164,6 +164,11 @@ body{
 .form-check-label{
     text-align: center;
 }
+.navbar-toggler{
+    font-size: medium !important;
+    border: none !important;
+    box-shadow: none !important;
+}
 .search{
     border-radius: 25rem !important;
     box-shadow: none !important;
