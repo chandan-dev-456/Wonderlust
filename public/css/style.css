@@ -17,7 +17,23 @@ body{
 }
 .nav-link{
     color: black !important;
-    font-weight: bolder;
+    font-weight: bold;
+}
+.fa-regular{
+    margin-right: 0.5rem !important;
+}
+.user{
+    border: gray !important ;
+    padding: 0.4rem 0.8rem 0.4rem 0.8rem!important;
+    border-radius: 1.6rem;
+}
+.explore{
+    border: gray !important ;
+    padding: 0 0.8rem 0 0.8rem!important;
+    border-radius: 1.6rem;
+}
+.user:hover , .explore:hover{
+    background-color: rgb(240, 172, 172);
 }
 .f-info{
     background-color: rgb(216, 216, 216);
@@ -48,22 +64,35 @@ body{
 .f-info-links a:hover{
     text-decoration: underline;
 }
+.list{
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center !important;
+}
 .listing-card{
     height: max-content !important;
     border: none !important;
     margin-bottom: 2rem;
+    width: 100%;
     object-fit: cover !important;
 }
 .card-img-top{
     margin-bottom: 1rem;
-    height:25rem !important;
+    height:20rem !important;
+    border-radius: 1rem !important;
+    object-fit: cover !important;
+}
+.show-card-img{
+    height:40rem !important;
     width: 100% !important;
     border-radius: 1rem !important;
     object-fit: cover !important;
 }
 .card-anchor{
     text-decoration: none;
+    width: 100%;
 }
+
 .card-img-overlay{
     opacity: 0;
 }
@@ -104,7 +133,7 @@ body{
 }
 #filters{
     display: flex !important;
-    margin: 1rem !important;
+    margin: 1rem 0 1rem 0 !important;
     align-items: center !important;
     justify-content: space-between !important;
 }
@@ -132,6 +161,9 @@ body{
     padding: 0.5rem;
     border-radius: 0.5rem;
 }
+.form-check-label{
+    text-align: center;
+}
 .search{
     border-radius: 25rem !important;
     box-shadow: none !important;
@@ -155,8 +187,17 @@ body{
     color: aliceblue;
     background-color: #fe424d ;
 }
-
-@media only screen and (max-width : 767px){
+/* For mobile Screen */
+@media only screen and (min-width:344px) and (max-width : 767px){
+    .navbar-brand p{
+        font-size: 1.2rem;
+    }
+    .navbar-brand i{
+        font-size: 1.5rem;
+    }
+    .icon{
+        font-size: 0.8rem;
+    }
     .tax-switch , .search-bar {
         display: none;
     }
@@ -197,4 +238,26 @@ body{
     .login-page ,.signup-page{
         margin-top: 5rem;
     }
+}
+
+/* For Tablet */
+@media only screen and (min-width : 768px) and (max-width : 1024px){
+    .tax-switch{
+        display: flex !important;
+    }
+    .search-bar {
+        width: 15rem;
+    }
+    .filter{
+        overflow-x: auto !important;
+    }
+    .form-switch{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-self: flex-start;
+        align-items: center;
+        text-align: left !important;
+        font-size: 1rem;
+    }
+    
 }
