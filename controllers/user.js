@@ -4,7 +4,7 @@ module.exports.login = async(req,res)=>{
     let {username} = req.user;
     //console.log(req.user.username);
     req.flash("success",`Welcome back ${username} to Wanderlust`);
-    let redirectUrl =res.locals.redirectUrl || "/listing"
+    let redirectUrl = res.locals.redirectUrl || "/listing"
     res.redirect(redirectUrl);
 };
 module.exports.signup = async(req,res)=>{
@@ -33,3 +33,24 @@ module.exports.logout = (req,res)=>{
         res.redirect("/listing");
     })
 }
+module.exports.changePassword = async(req ,res)=>{
+    try{
+        let {email,password} = req.body;
+        const user = await User.findOne({email});
+        if(!user){
+            req.flash("error", "Email not found.");
+            return res.redirect("/changePassword");
+        }
+        await user.setPassword(password);
+        await user.save();
+
+        req.flash("success", "Password updated successfully.");
+        res.redirect("/login");
+    }
+    catch (err) {
+        console.error("Error changing password:", err);
+        req.flash("error", "Something went wrong.");
+        res.redirect("/changePassword");
+    }
+};
+

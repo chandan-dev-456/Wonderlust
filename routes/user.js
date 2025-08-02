@@ -27,4 +27,10 @@ router.route("/login")
 
 router.get("/logout",userController.logout);
 
+router.route("/changePassword")
+    .get((req,res)=>{
+        res.render("./users/newPassword");
+    })
+    .post(wrapAsync(userController.changePassword));
+
 module.exports = router;
