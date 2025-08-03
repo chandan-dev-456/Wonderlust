@@ -36,15 +36,8 @@ License
 
 🎨 Responsive and modern UI
 
-🖼️ Screenshots
-Add your app screenshots here (optional):
-
-swift
-Copy
-Edit
-📷 public/screenshots/login-page.png
-📷 public/screenshots/listing-page.png
 ⚙️ Tech Stack
+
 Backend: Node.js, Express.js
 
 Frontend: EJS, Bootstrap
