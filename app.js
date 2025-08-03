@@ -34,7 +34,7 @@ async function main(){
     await mongoose.connect(MONGO_URL);
 }
 main().then((res)=>{
-    console.log("Succesfully Connected");
+    console.log("Database Succesfully Connected");
 }).catch(err=>{
     console.log(err);
 })
