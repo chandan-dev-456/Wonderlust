@@ -1,11 +1,12 @@
 <% layout("/layouts/boilerplate") %>
-<body>
+
     <style>
         .profile-card {
             background-image: url("<%= currentUser.profilePic.url %>");
         }
     </style>
-    <div class="container d-flex flex-column align-items-center pt-5">
+<body>
+    <div class="container d-flex flex-column align-items-center py-5">
         <div class="profile-card"></div>
         <div class="mt-5">
             <form action="/profile" method="post" enctype="multipart/form-data">
@@ -28,7 +29,8 @@
                     <div class="valid-feedback">Looks good!</div>
                 </div>
                 <div class="d-flex flex-column">
-                    <button class="btn btn-primary align-self-center">Submit</button>
+                    <button class="btn btn-primary align-self-center">Update</button>
+                    
                 </div>
             </form>
         </div>
