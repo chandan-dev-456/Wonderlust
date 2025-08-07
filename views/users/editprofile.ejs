@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <style>
+        .profile-card {
+            background-image: url("<%= currentUser.profilePic.url %>");
+        }
+    </style>
+    <div class="container d-flex flex-column align-items-center pt-5">
+        <div class="profile-card"></div>
+        <div class="mt-5">
+            <form action="/profile" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="username" >Name : </label>
+                    <input class="form-control" type="text" name="profile[username]" id="name" value="<%=currentUser.username %>">
+                    <div class="invalid-feedback">Please provide a Title</div>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="email" >Email : </label>
+                    <input class="form-control" type="email" name="profile[email]" id="email" value="<%=currentUser.email%>">
+                    <div class="invalid-feedback">Please provide a Email</div>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" >Image : </label>
+                    <input name="profile[image]" placeholder="Give image file" type="file" class="form-control" id="image">
+                    <div class="invalid-feedback">Please provide a Image</div>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="d-flex flex-column">
+                    <button class="btn btn-primary align-self-center">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>

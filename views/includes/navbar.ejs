@@ -9,11 +9,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <% if (currentUser) { %>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <div class="user nav-link">
-            <i class="fa-regular fa-user fa-sm" style="color: #ff3d3d;"></i><%=currentUser.username%>
-          </div>
+      <ul class="user navbar-nav">
+        <li class="user nav-item d-flex align-items-center">
+          <a class="nav-link d-flex align-items-center gap-2" href="/profile">
+            <img 
+              src="<%= currentUser.profilePic.url %>" 
+              alt="Profile Picture" 
+              style="width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover;"
+            >
+            <span class="d-none d-sm-inline"><%= currentUser.username %></span>
+          </a>
         </li>
       </ul>
       <% } %>

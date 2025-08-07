@@ -53,4 +53,38 @@ module.exports.changePassword = async(req ,res)=>{
         res.redirect("/changePassword");
     }
 };
+module.exports.profile = async (req, res) => {
+  try {
+    const id = req.user._id;
+    const newUser = await User.findById(id);
+
+    // Update email if provided
+    if (req.body.profile.email) {
+      newUser.email = req.body.profile.email;
+    }
+    // If a new file is uploaded, update the profilePic
+    if (req.file) {
+      newUser.profilePic = {
+        url: req.file.path,
+        filename: req.file.filename
+      };
+    }
+    // If no image is set at all (initial case), set a default image
+    if (!newUser.profilePic || !newUser.profilePic.url) {
+      newUser.profilePic = {
+        url: "https://www.shutterstock.com/shutterstock/photos/1906669723/display_1500/stock-vector-default-avatar-profile-icon-social-media-user-vector-image-1906669723.jpg",
+        filename: "default-profile"
+      };
+    }
+
+    await newUser.save();
+    req.flash("success", "Profile Updated");
+    res.redirect("/profile");
+
+  } catch (err) {
+    console.error(err);
+    req.flash("error", "Failed to update profile");
+    res.redirect("/profile");
+  }
+};
 

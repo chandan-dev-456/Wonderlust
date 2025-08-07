@@ -2,9 +2,21 @@ const express = require("express");
 const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync");
 const passport = require("passport");
-const { saveredirectUrl } = require("../middleware");
 const userController = require("../controllers/user");
+const {isOwner,isLoggedIn,validateListing,saveredirectUrl} = require("../middleware.js");
+const multer = require("multer");
+const {storage} = require("../cloudConfig.js");
+const upload = multer({storage});
 
+router.route("/profile",isLoggedIn)
+    .get((req,res)=>{
+        res.render("./users/profile")
+    })
+    .post(isLoggedIn,upload.single("profile[image]"),wrapAsync(userController.profile));
+router.route("/profile/edit")
+    .get((req,res)=>{
+        res.render("./users/editprofile");
+    })
 router.route("/signup")
     .get((req,res)=>{
         res.render("./users/signup");

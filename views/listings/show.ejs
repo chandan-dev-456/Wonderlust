@@ -55,7 +55,10 @@
             <div class="row">
                 <%for( review of listing.reviews){ %>
                     <div class="card review-card col-md-6 mb-2">
-                        <h4 class="card-title"><b><%= review.author.username %></b></h4>
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <img src="<%= review.author.profilePic.url %>" alt="profile pic" style="width: 4rem; height:4rem; border-radius: 50%; background-size: 120%;">
+                            <h4 class="card-title mb-0"><b><%= review.author.username %></b></h4>
+                        </div>
                         <p class="starability-result" data-rating = "<%= review.rating %>"></p>
                         <h6 class="card-text"><%= review.comment %></h6>
                         <% if ( currentUser && review.author.username === currentUser.username) { %>

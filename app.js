@@ -31,12 +31,16 @@ const MONGO_URL = process.env.ATLASDB_URL;
 
 //databases
 async function main(){
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(MONGO_URL,
+        {useNewUrlParser: true,
+        useUnifiedTopology: true,
+        ssl: true,
+        tlsAllowInvalidCertificates: false});
 }
 main().then((res)=>{
     console.log("Database Succesfully Connected");
 }).catch(err=>{
-    console.log(err);
+    console.log("MongoDB connection error:", err);
 })
 
 const store = MongoStore.create({

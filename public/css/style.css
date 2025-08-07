@@ -22,11 +22,6 @@ body{
 .fa-regular{
     margin-right: 0.5rem !important;
 }
-.user{
-    border: gray !important ;
-    padding: 0.4rem 0.8rem 0.4rem 0.8rem!important;
-    border-radius: 1.6rem;
-}
 .explore{
     border: gray !important ;
     padding: 0 0.8rem 0 0.8rem!important;
@@ -34,11 +29,12 @@ body{
 }
 .user:hover , .explore:hover{
     background-color: rgb(240, 172, 172);
+    border-radius: 1.6rem;
 }
 .f-info{
     background-color: rgb(216, 216, 216);
     font-size: 1.1rem;
-    height: 8rem;
+    height: 15rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -177,6 +173,7 @@ body{
 .search-bar{
     width: 20rem;
     padding: 0.2rem;
+    margin-left: -10rem;
     border-radius: 25rem;
     display: flex;
     border:0.09rem solid rgb(158, 149, 149);
@@ -192,6 +189,32 @@ body{
     color: aliceblue;
     background-color: #fe424d ;
 }
+.unstyled-link {
+  color: inherit !important;         
+  text-decoration: none !important;
+  padding: 0 !important;            
+}
+.profile-card {
+        width: 15rem;
+        height: 15rem;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-size: 110%;
+        background-position: center center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-position 0.6s ease, background-size 0.6s ease;
+    }
+
+    .profile-card:hover {
+        background-size: 140%; 
+        background-position: left center;
+    }
+
 /* For mobile Screen */
 @media only screen and (min-width:344px) and (max-width : 767px){
     .navbar-brand p{

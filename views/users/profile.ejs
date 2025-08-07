@@ -1,0 +1,20 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    .profile-card {
+        background-image: url("<%= currentUser.profilePic.url %>");
+    }
+</style>
+    
+<body class="d-flex flex-column min-vh-100">
+    <div class="container flex-fill d-flex flex-column align-items-center pt-5 bg-grey shadow-lg" style="width: 40rem; height:100vh;">
+        <div class="profile-card"></div>
+        <div class="edit rounded-circle" style="margin-top: -1rem; z-index: 1;">
+            <a href="/profile/edit" class="unstyled-link"><button class="btn" href><i class="fa-solid fa-pen-to-square"></i></button></a>
+        </div>
+        <!-- Name under the profile -->
+        <div class="name mt-4 text-center">
+            <h3 class="mb-2"><%=currentUser.username%></h3>
+            <p class="mb-2"><%=currentUser.email%></p>
+        </div>
+    </div>
+</body>
