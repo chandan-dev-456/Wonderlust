@@ -1,10 +1,10 @@
 <% layout("/layouts/boilerplate") %>
+<style>
+  .profile-card {
+    background-image: url("<%= currentUser && currentUser.profilePic ? currentUser.profilePic.url : '/a4e5acb1-bdf8-4fd7-8854-fe3c43ae51ba.jpeg' %>");
+  }
+</style>
 
-    <style>
-        .profile-card {
-            background-image: url("<%= currentUser.profilePic.url %>");
-        }
-    </style>
 <body>
     <div class="container d-flex flex-column align-items-center py-5">
         <div class="profile-card"></div>

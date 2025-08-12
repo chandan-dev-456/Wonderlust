@@ -214,7 +214,6 @@ body{
         background-size: 140%; 
         background-position: left center;
     }
-
 /* For mobile Screen */
 @media only screen and (min-width:344px) and (max-width : 767px){
     .navbar-brand p{

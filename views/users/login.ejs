@@ -11,9 +11,12 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input name="password" placeholder="Enter Password" type="password" class="form-control"id="password"required>
-                    <div class="invalid-feedback">Please enter password</div>
-                    <div class="valid-feedback">Looks good!</div>
+                    <div class="input-group">
+                        <input name="password" placeholder="Enter Password" type="password" class="form-control" id="password" required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i id="eyeIcon" class="fa-solid fa-eye-slash"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="container d-flex align-items-center justify-content-between">
                     <button type="submit" class="btn btn-success mb-3">Login</button>
@@ -23,3 +26,19 @@
             </form>
         </div>
     </div>
+
+
+<script>
+    const togglePassword = document.querySelector("#togglePassword");
+    const passwordInput = document.querySelector("#password");
+    const eyeIcon = document.querySelector("#eyeIcon");
+
+    togglePassword.addEventListener("click", () => {
+        const isPassword = passwordInput.type === "password";
+        passwordInput.type = isPassword ? "text" : "password";
+        
+        // Toggle icon classes
+        eyeIcon.classList.toggle("fa-eye-slash", !isPassword);
+        eyeIcon.classList.toggle("fa-eye", isPassword);
+    });
+</script>

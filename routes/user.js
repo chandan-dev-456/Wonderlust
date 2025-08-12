@@ -8,15 +8,17 @@ const multer = require("multer");
 const {storage} = require("../cloudConfig.js");
 const upload = multer({storage});
 
-router.route("/profile",isLoggedIn)
-    .get((req,res)=>{
-        res.render("./users/profile")
+router.route("/profile", isLoggedIn)
+    .get((req, res) => {
+        res.render("./users/profile", { currentUser: req.user });
     })
-    .post(isLoggedIn,upload.single("profile[image]"),wrapAsync(userController.profile));
+    .post(isLoggedIn, upload.single("profile[image]"), wrapAsync(userController.profile));
+
 router.route("/profile/edit")
-    .get((req,res)=>{
-        res.render("./users/editprofile");
-    })
+    .get((req, res) => {
+        res.render("./users/editprofile", { currentUser: req.user });
+    });
+
 router.route("/signup")
     .get((req,res)=>{
         res.render("./users/signup");

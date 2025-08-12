@@ -13,7 +13,7 @@ const userSchema = new Schema({
         filename: String
     },
     default: {
-        url: "https://www.shutterstock.com/shutterstock/photos/1906669723/display_1500/stock-vector-default-avatar-profile-icon-social-media-user-vector-image-1906669723.jpg",
+        url: "/a4e5acb1-bdf8-4fd7-8854-fe3c43ae51ba.jpeg",
         filename: "default-profile"
     }
 }
