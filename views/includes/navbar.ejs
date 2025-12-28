@@ -2,50 +2,50 @@
   <div class="container-fluid">
     <a class="navbar-brand " href="/listing">
       <i class="fa-brands fa-airbnb fa-2xl fa-flip" style="color: #ff0000;"></i>
-      <p style="color: #ff0000;"class="m-0 ms-2"><b>Wonderlust</b></p>
+      <p style="color: #ff0000;" class="m-0 ms-2"><b>Wonderlust</b></p>
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <% if (currentUser) { %>
-      <ul class="user navbar-nav">
-        <li class="user nav-item d-flex align-items-center">
-          <a class="nav-link d-flex align-items-center gap-2" href="/profile">
-            <img 
-              src="<%= currentUser.profilePic.url %>" 
-              alt="Profile Picture" 
-              style="width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover;"
-            >
-            <span><%= currentUser.username %></span>
-          </a>
-        </li>
-      </ul>
-      <% } %>
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <div class="explore nav-link">
-            <a class="nav-link" href="/listing">Explore</a>
-          </div>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <div class="search-bar ">
-          <input class="search form-control" type="search" placeholder="Search" aria-label="Search"/>
-          <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass fa-sm"></i></button>
-        </div>
-      </form>
-      <div class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/listing/new">Wonder your home</a>
+      <% if (typeof currentUser !=='undefined' && currentUser) { %>
+        <ul class="user navbar-nav">
+          <li class="user nav-item d-flex align-items-center">
+            <a class="nav-link d-flex align-items-center gap-2" href="/profile">
+              <img src="<%= currentUser.profilePic.url %>" alt="Profile Picture"
+                style="width: 2rem; height: 2rem; border-radius: 50%; object-fit: cover;">
+              <span>
+                <%= currentUser.username %>
+              </span>
+            </a>
           </li>
-          <% if (currentUser) { %>
+        </ul>
+        <% } %>
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <div class="explore nav-link">
+                <a class="nav-link" href="/listing">Explore</a>
+              </div>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <div class="search-bar ">
+              <input class="search form-control" type="search" placeholder="Search" aria-label="Search" />
+              <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass fa-sm"></i></button>
+            </div>
+          </form>
+          <div class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/listing/new">Wonder your home</a>
+            </li>
+            <% if (typeof currentUser !=='undefined' && currentUser) { %>
               <b><a class="nav-link" href="/logout">Logout</a></b>
-            <% } else { %>
-              <b><a class="nav-link" href="/signup">SignUp</a></b>
-              <b><a class="nav-link" href="/login">Login</a></b>
-          <% } %> 
-      </div>
+              <% } else { %>
+                <b><a class="nav-link" href="/signup">SignUp</a></b>
+                <b><a class="nav-link" href="/login">Login</a></b>
+                <% } %>
+          </div>
     </div>
   </div>
 </nav>
