@@ -103,4 +103,4 @@ Feel free to fork this repo, make improvements, and open a PR!
 Please open an issue for bugs or feature requests.
 
 📜 License
-MIT License © 2025 Your Name
+MIT License © 2025 Chandan Ho
