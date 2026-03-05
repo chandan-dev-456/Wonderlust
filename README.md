@@ -1,4 +1,4 @@
-🧳 Wanderlust
+🧳 Wonderlust
 A full-featured Airbnb-style travel and stay booking web application built with Node.js, Express, MongoDB, and EJS. Wanderlust allows users to explore listings, write reviews, register/login, and more.
 
 🌐 Live Demo
@@ -54,7 +54,7 @@ Clone the repo
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/wanderlust.git
+git clone https://github.com/chandan-dev-456/wanderlust.git
 cd wanderlust
 Install dependencies
 
